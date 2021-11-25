@@ -15,9 +15,9 @@ services:
     image: centos
     deploy:
       replicas: 2
-      entrypoint: /bin/sh
-      stdin_open: true
-      tty: true
+    entrypoint: /bin/sh
+    stdin_open: true
+    tty: true
     secrets:
       - source: my-secret
 
