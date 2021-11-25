@@ -18,8 +18,8 @@ services:
       entrypoint: /bin/sh
       stdin_open: true
       tty: true
-      secrets:
-        - source: my-secret
+    secrets:
+      - source: my-secret
 
 secrets:
   db_username:
