@@ -63,7 +63,7 @@ services:
       - db
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 2
       labels: [APP=VOTING]
       restart_policy:
         condition: on-failure
