@@ -10,9 +10,21 @@ services:
     environment:
       POSTGRES_PASSWORD_FILE:  /run/secrets/db_password
       POSTGRES_USER_FILE: /run/secrets/db_username
-      
+
+  centOS:
+    image: centos
+    deploy:
+      replicas: 2
+      entrypoint: /bin/sh
+      stdin_open: true
+      tty: true
+      secrets:
+        - source: my-secret
+
 secrets:
   db_username:
     file: ./postgres_user.txt
   db_password:
     file: ./postgres_password.txt
+  my-secret:
+    external: true
