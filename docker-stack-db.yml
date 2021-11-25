@@ -1,0 +1,33 @@
+version: "3"
+services:
+
+  db:
+    image: postgres:9.4
+    
+    secrets:
+      -db_username
+      -db_password
+    environment:
+      POSTGRES_PASSWORD_FILE:  /run/secrets/db_password
+      POSTGRES_USER_FILE: /run/secrets/db_username
+      
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - backend
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+secrets:
+  db_username:
+    file: ./postgres_user.txt
+  db_password:
+    file: ./postgres_password.txt
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  db-data:
