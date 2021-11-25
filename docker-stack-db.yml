@@ -5,8 +5,8 @@ services:
     image: postgres:9.4
     
     secrets:
-      -db_username
-      -db_password
+      - db_username
+      - db_password
     environment:
       POSTGRES_PASSWORD_FILE:  /run/secrets/db_password
       POSTGRES_USER_FILE: /run/secrets/db_username
