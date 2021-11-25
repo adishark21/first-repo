@@ -24,10 +24,3 @@ secrets:
     file: ./postgres_user.txt
   db_password:
     file: ./postgres_password.txt
-
-networks:
-  frontend:
-  backend:
-
-volumes:
-  db-data:
